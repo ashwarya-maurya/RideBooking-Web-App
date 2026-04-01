@@ -21,7 +21,6 @@ const userSchema = new mongoose.Schema({
     },
     password:{
         type: String,
-        unique: true,
         select: false
     },
     socketId:{
@@ -42,6 +41,6 @@ userSchema.statics.hashPassword = async function (password){
     return await bcrypt.hash(password, 10);
 }
 
-const userModel = mongoose.model('user', userSchema);
+const userModel = mongoose.model('users', userSchema);
 
 module.exports = userModel;

@@ -2,7 +2,6 @@ const userModel = require('../models/user.models');
 const userService = require('../services/user.services');
 const {validationResult} = require('express-validator');
 const blacklistTokenModel = require('../models/blacklistToken.models');
-const captainModel = require('../models/captain.models');
 
 module.exports.registerUser = async(req,res,next)=>{
     
@@ -10,10 +9,11 @@ module.exports.registerUser = async(req,res,next)=>{
     if(!errors.isEmpty()){
         return res.status(400).json({errors:errors.array()});
     }
-    
+   
+   try{
     const {fullname, email, password} = req.body;
 
-    const isUserExist = await captainModel.findOne({email});
+    const isUserExist = await userModel.findOne({email});
     if(isUserExist){
         return res.status(400).json({message : 'User already exist with this email'})
     }
@@ -30,6 +30,9 @@ module.exports.registerUser = async(req,res,next)=>{
     const token = user.generateAuthToken();
 
     res.status(201).json({ token,user });
+   } catch(error){
+        res.status(500).json({message : error.message})
+   }
 }
 
 module.exports.loginUser = async(req,res,next)=>{
@@ -39,38 +42,49 @@ module.exports.loginUser = async(req,res,next)=>{
         return res.status(400).json({errors:errors.array()});
     }
 
-    const {email,password} = req.body;
+    try {
+        const { email, password } = req.body;
 
-    const user = await userService.findUser({ email });
+        const user = await userService.findUser({ email });
 
-    if(!user){
-        return res.status(401).json({message : 'Invalid email or password'});
+        if (!user) {
+        return res.status(401).json({ message: 'Invalid email or password' });
+        }
+
+        const isMatch = await user.comparePass(password);
+
+        if (!isMatch) {
+        return res.status(401).json({ message: 'Invalid email or password' });
+        }
+
+        const token = user.generateAuthToken();
+
+        res.status(200).json({ token, user });
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
     }
-
-    const isMatch = await user.comparePass(password);
-
-    if(!isMatch){
-        return res.status(401).json({message : 'Invalid email or password'});
-    }
-
-    const token = user.generateAuthToken();
-
-    res.cookie('token',token);
-
-    res.status(200).json({token,user});
 }
 
 module.exports.getUserProfile = async(req,res,next)=>{
-    res.status(200).json(req.user);
+    try{
+        res.status(200).json(req.user);
+    }catch(error){
+        res.status(500).json({message : error.message})
+    }
 }
 
 module.exports.logoutUser = async(req,res,next)=>{
 
-    const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
+    try{
+        const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
 
-    await blacklistTokenModel.create({ token });
+        await blacklistTokenModel.create({ token });
 
-    res.clearCookie('token');
+        res.clearCookie('token');
 
-    res.status(200).json({ message: 'Logout successful' });
+        res.status(200).json({ message: 'Logout successful' });
+    }catch(error){
+        res.status(500).json({message : error.message})
+    }
 }

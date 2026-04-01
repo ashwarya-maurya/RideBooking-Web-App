@@ -21,7 +21,6 @@ const captainSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    unique: true,
     select: false,
   },
   socketId: {
@@ -79,6 +78,6 @@ captainSchema.statics.hashPassword = async function (password) {
   return await bcrypt.hash(password, 10);
 };
 
-const captainModel = mongoose.model("caption", captainSchema);
+const captainModel = mongoose.model("captains", captainSchema);
 
 module.exports = captainModel;

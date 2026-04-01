@@ -101,7 +101,7 @@ const CaptainSignup = () => {
                 <button 
                 type='submit'
                 className='w-full bg-black font-medium text-lg text-white rounded px-4 py-3 mb-1'>Create Captain Account</button>
-                <p className='text-center text-base'>Already have account? <Link to='/captain_login' className='text-blue-600'>Login here</Link></p>
+                <p className='text-center'>Already have account? <Link to='/captain_login' className='text-blue-600'>Login here</Link></p>
             </div>
         </form>
     </div>

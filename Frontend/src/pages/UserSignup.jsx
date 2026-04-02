@@ -107,10 +107,6 @@ const UserSignup = () => {
           <p className='mt-1  text-center'>Already have account? <Link to='/login' className='text-blue-600'>Login here</Link></p>
 
         </div>
-        <div>
-          <p className='text-[10.5px]'>This site is protected by reCAPTCHA and the <span className='underline'>Google Privacy
-            Policy</span> and <span className='underline'>Terms of Service apply</span>.</p>
-        </div>
       </div>
   )
 }

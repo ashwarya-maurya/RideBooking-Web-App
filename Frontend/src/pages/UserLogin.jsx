@@ -29,7 +29,7 @@ const UserLogin = () => {
         navigate('/home')
       }
     }catch(error){
-      alert(error.response?.data?.message || "Something went wrong")
+      alert(error.response?.data?.message || "Login Failed")
     }
 
     setpassword('')

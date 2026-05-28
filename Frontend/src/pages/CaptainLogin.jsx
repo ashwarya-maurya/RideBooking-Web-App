@@ -76,7 +76,7 @@ return (
 
         </div>
         <div>
-          <Link to='/login' className='border border-gray-400 w-full text-black font-medium text-lg bg-[#EEEEEE] rounded px-4 py-2 flex items-center justify-center'>Sign In as User</Link>
+          <Link to='/login' className='border border-gray-400 w-full text-black font-medium text-lg bg-yellow-500 rounded px-4 py-2 flex items-center justify-center'>Sign In as User</Link>
         </div>
       </div>
   )

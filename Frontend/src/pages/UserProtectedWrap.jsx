@@ -28,7 +28,7 @@ const UserProtectedWrap = ({children}) => {
         } ).catch((error)=>{
             setisLoading(false)
             localStorage.removeItem('token')
-            navigate('/home')
+            navigate('/login')
         })
 
     },[token])

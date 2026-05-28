@@ -14,7 +14,6 @@ import CaptianLogout from './pages/CaptianLogout'
 import Riding from './pages/Riding'
 import CaptainRiding from './pages/CaptainRiding'
 
-
 const App = () => {
   return (
     <div>

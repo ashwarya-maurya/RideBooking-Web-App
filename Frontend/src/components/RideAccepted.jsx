@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const RideAccepted = (props) => {
@@ -6,6 +6,8 @@ const RideAccepted = (props) => {
     const submitHandler = (e)=>{
         e.preventDefault()
     }
+
+    const [OTP, setOTP] = useState('')
 
   return (
     <div>
@@ -52,7 +54,11 @@ const RideAccepted = (props) => {
                 submitHandler(e)
             }}>
 
-                <input className='w-full text-lg font-mono rounded p-4 mt-2 mb-5 bg-gray-300' type="text" placeholder='Enter OTP here...' />
+                <input 
+                value={OTP}
+                onChange={(e)=>{
+                 setOTP(e.target.value)   
+                }} className='w-full text-lg font-mono rounded p-4 mt-2 mb-5 bg-gray-300' type="text" placeholder='Enter OTP here...' />
 
                 <div className='flex gap-2'>
                 <Link to='/confirm_ride' className='text-center w-1/2 bg-green-700 text-white p-2 rounded'>Confirm</Link>

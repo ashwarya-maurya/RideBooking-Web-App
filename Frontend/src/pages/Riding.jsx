@@ -10,12 +10,12 @@ const Riding = () => {
             <i className='text-2xl ri-home-5-line'></i>
         </Link>
 
-        <div className='h-[55%]'>
+        <div className='h-[62%]'>
             <img src={CityMap} alt="Map" className='h-full w-full object-cover'/>
         </div>
 
-        <div className='h-auto p-2'>
-                <div className='flex items-center justify-between mt-2 mb-5'>
+        <div className='h-[38%] p-2'>
+                <div className='flex items-center justify-between mb-1'>
                 <img className='h-15' src="https://www.asaproadworthys.com.au/wp-content/uploads/2021/11/Select.jpeg" alt="Car" />
                 <div className='text-right'>
                     <h2 className='text-lg font-medium'>Driver</h2>
@@ -26,7 +26,7 @@ const Riding = () => {
 
             <div className='w-full'>
 
-                <div className='flex items-center gap-5 border-b mb-3 p-2 border-gray-400'>
+                <div className='flex items-center gap-5 border-b mb-1 p-2 border-gray-400'>
                     <div><i className='text-xl ri-square-fill'></i></div>
                     <div>
                         <h2 className='text-lg font-semibold'>Shop 21</h2>
@@ -34,7 +34,7 @@ const Riding = () => {
                     </div>
                 </div>
 
-                <div className='flex items-center gap-5 mb-3 p-2'>
+                <div className='flex items-center gap-5 mb-1 p-2'>
                     <div><i className='text-xl ri-cash-fill'></i></div>
                     <div>
                         <h2 className='text-lg font-semibold'>₹193</h2>
@@ -44,7 +44,8 @@ const Riding = () => {
  
             </div>
 
-            <button className='w-full bg-green-800 text-white p-2 rounded' >Make Payment</button>
+                <Link to='/user_payment' className='block w-full bg-green-800 text-center text-white p-2 rounded' >Make Payment</Link>
+
         </div>
 
     </div>

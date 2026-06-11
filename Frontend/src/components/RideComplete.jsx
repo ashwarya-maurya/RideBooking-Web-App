@@ -1,9 +1,7 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const RideComplete = (props) => {
-
-  const navigate = useNavigate()
 
   return (
     <div>
@@ -48,10 +46,8 @@ const RideComplete = (props) => {
             </div>
 
             <div className='flex w-full gap-2' >
-            <button onClick={()=>{
-                // recive payment page
-            }} 
-            className='w-1/2 bg-green-700 text-white p-2 rounded'>Recive Payment</button>
+
+            <Link to='/captain_payment' className='w-1/2 text-center bg-green-700 text-white p-2 rounded'>Recive Payment</Link>
 
             <Link onClick={()=>{
                 props.setrideCompletePanel(false)   

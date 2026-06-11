@@ -13,6 +13,8 @@ import CaptainProtectedWrap from './pages/CaptainProtectedWrap'
 import CaptianLogout from './pages/CaptianLogout'
 import Riding from './pages/Riding'
 import CaptainRiding from './pages/CaptainRiding'
+import UserPayment from './pages/UserPayment'
+import CaptainPayment from './pages/CaptainPayment'
 
 const App = () => {
   return (
@@ -22,11 +24,13 @@ const App = () => {
         <Route path='/home' element={<UserProtectedWrap><Home/></UserProtectedWrap>}/>
         <Route path='/login' element={<UserLogin/>}/>
         <Route path='/signup' element={<UserSignup/>}/>
+        <Route path='/logout' element={<UserProtectedWrap><UserLogout/></UserProtectedWrap>}/>
         <Route path='/riding' element={<Riding/>}/>
+        <Route path='/user_payment' element={<UserPayment/>} />
         <Route path='/captain_login' element={<CaptainLogin/>} />
         <Route path='/captain_signup' element={<CaptainSignup/>} />
         <Route path='/confirm_ride' element={<CaptainRiding/>}/>
-        <Route path='/logout' element={<UserProtectedWrap><UserLogout/></UserProtectedWrap>}/>
+        <Route path='/captain_payment' element={<CaptainPayment/>} />
         <Route path='/captain_home' element={<CaptainProtectedWrap><CaptainHome/></CaptainProtectedWrap>}/>
         <Route path='/captain_logout' element={<CaptainProtectedWrap><CaptianLogout/></CaptainProtectedWrap>}/>
       </Routes>

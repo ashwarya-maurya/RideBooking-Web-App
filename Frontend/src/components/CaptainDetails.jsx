@@ -3,7 +3,7 @@ import React from 'react'
 const CaptainDetails = () => {
   return (
     <div>
-        <div className='flex justify-between items-center rounded-lg p-2 mb-3 bg-orange-500'>
+        <div className='flex justify-between items-center rounded-lg p-2 mb-3 bg-orange-400'>
          <div className='flex gap-1 items-center'>
           <img className='w-13 rounded-full' src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D'/>
           <h2 className='text-xl font-semibold'>David Singh</h2>

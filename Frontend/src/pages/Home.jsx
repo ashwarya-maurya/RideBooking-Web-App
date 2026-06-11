@@ -8,6 +8,7 @@ import VehiclePanel from '../components/VehiclePanel'
 import ConfirmRide from '../components/ConfirmRide'
 import LookingDriver from '../components/LookingDriver'
 import WatingForDriver from '../components/WatingForDriver'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
 
@@ -122,6 +123,11 @@ const Home = () => {
 
   return (
     <div className='h-screen w-screen relative overflow-hidden'>
+
+      <Link to='/logout' className='fixed z-20 right-3 top-3 flex justify-center items-center rounded-full px-2 py-1 bg-white'>
+          <i className='text-2xl ri-logout-box-r-line'></i>
+      </Link>
+
       <img className='w-18 absolute left-5 top-5' src='https://freelogopng.com/images/all_img/1659761100uber-logo-png.png' alt='Uber'/>
 
       <div className='h-screen w-screen'>
